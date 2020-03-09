@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from "axios";
+import SwCard from './components/swCard';
 
 function App() {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -12,8 +13,8 @@ function App() {
   // sync up with, if any.
   useEffect(() => {
     axios.get("https://swapi.co/api/people").then(response => {
-        console.log(response);
-        setswCharacters(response.data);
+        console.log(response.data.results);
+        setswCharacters(response.data.results);
     });
   }, []);
 
@@ -22,13 +23,16 @@ function App() {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-
-      <p>
-        {swCharacters.name}
-      </p>
-      <p>
-        {swCharacters.homeworld}
-      </p>
+      {swCharacters.map(starwarsChar =>{
+        return (
+          <SwCard
+          name={starwarsChar.name}
+          birth_year={starwarsChar.birth_year}
+          url={starwarsChar.url}
+          homeworld={starwarsChar.homeworld}
+          />
+        )
+      })}
     </div>
   );
 }
