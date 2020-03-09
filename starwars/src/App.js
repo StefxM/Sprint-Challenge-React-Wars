@@ -28,7 +28,7 @@ function App() {
           <SwCard
           name={starwarsChar.name}
           birth_year={starwarsChar.birth_year}
-          url={starwarsChar.url}
+          url="https://swapi.co/api/people/1/"
           homeworld={starwarsChar.homeworld}
           />
         )
