@@ -4,6 +4,8 @@
 
 2. What does it mean to think in react?
 
+When looking at a DOM in the browser, thinking how it was built and whats being pulled from other DOMS.
+
 
 3.Describe state.
 
