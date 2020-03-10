@@ -3,6 +3,9 @@ import './App.css';
 import axios from "axios";
 import SwCard from './components/swCard';
 
+
+
+
 function App() {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
@@ -28,8 +31,8 @@ function App() {
           <SwCard
           name={starwarsChar.name}
           birth_year={starwarsChar.birth_year}
-          url="https://swapi.co/api/people/1/"
-          homeworld={starwarsChar.homeworld}
+          hair_color={starwarsChar.hair_color}
+          gender={starwarsChar.gender}
           />
         )
       })}
