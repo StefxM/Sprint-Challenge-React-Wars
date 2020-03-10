@@ -16,7 +16,7 @@ function App() {
   // sync up with, if any.
   useEffect(() => {
     axios.get("https://swapi.co/api/people").then(response => {
-        console.log(response.data.results);
+       console.log(response.data.results);
         setswCharacters(response.data.results);
     });
   }, []);
@@ -27,12 +27,13 @@ function App() {
     <div className="App">
       <h1 className="Header">React Wars</h1>
       {swCharacters.map(starwarsChar =>{
-        return (
-          <SwCard
+        return (        //placeholder
+          <SwCard //passing props
           name={starwarsChar.name}
-          birth_year={starwarsChar.birth_year}
+          banana={starwarsChar.birth_year}
           hair_color={starwarsChar.hair_color}
           gender={starwarsChar.gender}
+        //name of props   //props
           />
         )
       })}
