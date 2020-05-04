@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
+//import App from "./App";
+
 const CardLi = styled.ul`
  background-color: transparent;
  color: white;
- border: dotted 10px brown;
+ border: dotted 10px tan;
  padding: 2%;
  text-align: center;
 
@@ -17,12 +19,13 @@ const CardLi = styled.ul`
 const SwCard = props => {
     return (
         
-        <ul className="swCard" key={props.results}>
+        <ul className="swCard">
         <CardLi>
         <h2>{props.name}</h2>
-        <p>Birth year:{props.banana}</p>
+        <p>Height:{props.height}</p>
         <p>Hair color:{props.hair_color}</p>
         <p>Gender:{props.gender}</p>
+        <p>Mass:{props.mass}</p>
         </CardLi>
         </ul>
     );

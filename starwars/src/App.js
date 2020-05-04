@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from "axios";
-import SwCard from './components/swCard';
+import SwCard from './components/SwCard';
+import SearchForm from './components/SearchForm';
 
 
 
@@ -15,30 +16,40 @@ function App() {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
   useEffect(() => {
-    axios.get("https://swapi.co/api/people").then(response => {
+    axios.get("https://swapi.py4e.com/api/people/").then(response => {
        console.log(response.data.results);
         setswCharacters(response.data.results);
     });
   }, []);
 
+  const [search, setSearch] = React.useState("");
+  
+  const handleChange = event => {
+    setSearch(event.target.value);
+  };
+
+  const result = swCharacters.filter(names => {
+    return names.name.includes(search);
+  })
 
 
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      {swCharacters.map(starwarsChar =>{
-        return (        //placeholder
-          <SwCard //passing props
-          name={starwarsChar.name}
-          banana={starwarsChar.birth_year}
-          hair_color={starwarsChar.hair_color}
-          gender={starwarsChar.gender}
+      <SearchForm value={search} onChange={handleChange} />
+
+      {result.map((swchar) => {
+          return <SwCard //passing props
+          name={swchar.name}
+          height={swchar.height}
+          hair_color={swchar.hair_color}
+          gender={swchar.gender}
+          mass={swchar.mass}
         //name of props   //props
-          />
-        )
+         />
       })}
     </div>
   );
-}
+};
 
 export default App;
