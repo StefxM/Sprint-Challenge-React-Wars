@@ -29,7 +29,7 @@ function App() {
   };
 
   const result = swCharacters.filter(names => {
-    return names.name.includes(search);
+    return names.name.toLowerCase().includes(search);
   })
 
 
